@@ -26,6 +26,7 @@ class Client:
 
     def train(self, w_global):
         self.model_trainer.set_model_params(w_global)
+        self.model_trainer.id = self.client_idx
         self.model_trainer.train(self.local_training_data, self.device, self.args)
         weights = self.model_trainer.get_model_params()
         return weights
