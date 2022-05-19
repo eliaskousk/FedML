@@ -241,7 +241,7 @@ def create_model(args, model_name, output_dim):
     if model_name == "lr" and args.dataset == "mnist":
         logging.info("LogisticRegression + MNIST")
         model = LogisticRegression(28 * 28, output_dim)
-    elif model_name == "cnn" and args.dataset == "femnist":
+    elif model_name == "cnn" and (args.dataset == "femnist" or args.dataset == "mnist"):
         logging.info("CNN + FederatedEMNIST")
         model = CNN_DropOut(False)
     elif model_name == "resnet18_gn" and args.dataset == "fed_cifar100":
